@@ -1,0 +1,7 @@
+log/*
+temp/*
+vendor/*
+app/config/onedrive.neon
+app/config/fb.neon
+composer.lock
+nbproject

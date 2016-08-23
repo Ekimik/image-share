@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Jan Jíša">
+
+        <title>{ifset title}{include title|stripHtml} | {/ifset}{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</title>
+
+        <link href="{$basePath}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{$basePath}/css/scrolling-nav.css" rel="stylesheet">
+        <link href="{$basePath}/css/style.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                        <li class="hidden">
+                            <a class="page-scroll" href="#page-top"></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#upload">Podělit se o zážitek</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <div class="col-lg-12">
+                    <div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
+                </div>
+            </div>
+            <!-- /.container -->
+        </nav>
+
+        <!-- Intro Section -->
+        <section id="intro" class="intro-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>O akci</h1>
+
+                        <p>
+                            Cyklo-turistická akce <strong>Kolem dokola Košeticka aneb putování s Poutníkem</strong> pořádaná
+                            <strong>Spolkem přátel mikroregionu Košeticko</strong>.
+                        </p>
+
+                        <div class="col-lg-6 col-lg-offset-3">
+                            <div id="event-date" class="panel panel-primary">
+                                <div class="panel-heading"><h4>Datum konání</h4></div>
+                                <div class="panel-body">
+                                    {$cfgParams->get('eventDate')}, {$cfgParams->get('eventTimeFrom')} - {$cfgParams->get('eventTimeTo')}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <p>
+                            Udělejte si čas a přijďte s námi strávit příjemný den s rodinou, kamarády, známými a sousedy, trochu si
+                            protáhnout tělo, dobře se najíst a napít a pobavit se. Zvolte si jednu z doporučených tras po
+                            mikroregionu Košeticko a projděte se, proběhněte se nebo se projeďte na kole, koloběžce či v kočárku
+                            s rodinou nebo partou známých.
+                        </p>
+
+                        <h2>Další informace</h2>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <a target="_blank" href="http://bit.ly/2aX3mNA" class="btn btn-default">Propozice</a>
+                            <a href="#" class="btn btn-default">Plánované trasy</a>
+                            <a href="{$cfgParams->get('fbEventUrl')}" class="btn btn-default">Facebook</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="upload" class="services-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Podělit se o zážitek</h1>
+
+                        <p>
+                            <strong>
+                                Chcete se s námi podělit o fotku z Vaší přípravy na výlet nebo chcete zveřejnit zajímavou fotku
+                                z vašeho putování po některé z tras?
+                            </strong>
+                        </p>
+
+                        <p>
+                            Připravili jsme pro Vás jednoduchou aplikaci, díky které můžete Vaše fotky či videa sdílet pohodlně.<br>
+                            <strong>Vyberte si jednu z možností níže a podělte s ostatními o zážitky z Vaší cesty!</strong>
+                        </p>
+
+                        <div class="panel-group col-lg-8 col-lg-offset-2" id="accordion-share-options" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading-one">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion-share-options" href="#collapse-one"
+                                           aria-expanded="true" aria-controls="collapse-one" class="btn btn-info">
+                                            Mám účet na Facebooku
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-one">
+                                    <div class="panel-body">
+                                        <p class="share-option-about">
+                                            Máte-li účet na Facebooku, není nic jednoduššího, než sdílet vaše zážitky přímo na oficiální
+                                            <a href="{$cfgParams->get('fbEventUrl')}" target="_blank">facebookové události</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {control fbShareForm}
+
+                            {control oneDriveShareForm}
+
+                        </div>
+
+                        <p>
+                            <span class="label label-warning">
+                                Upozorňujeme, že veškerý nevhodný obsah bude smazán a to dle uvážení pořadatelů.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="{$basePath}/js/jquery.js"></script>
+        <script src="{$basePath}/js/bootstrap.min.js"></script>
+        <script src="{$basePath}/js/jquery.easing.min.js"></script>
+        <script src="{$basePath}/js/scrolling-nav.js"></script>
+
+    </body>
+
+</html>
+

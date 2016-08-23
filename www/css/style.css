@@ -1,0 +1,17 @@
+
+#accordion-share-options .panel {
+    margin-bottom: 20px;
+}
+#accordion-share-options .panel:last-child {
+    margin-bottom: 0px;
+}
+#accordion-share-options .panel-heading {
+    padding: 0px;
+}
+#accordion-share-options .panel-title a {
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}

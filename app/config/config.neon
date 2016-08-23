@@ -1,0 +1,38 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+parameters:
+    app-name: "Kolem dokola Košeticka"
+    app-year: "2016"
+    app-support-mail: "j.jisa@seznam.cz"
+    event-date: "27. 8. 2016"
+    event-time-from: "9:00"
+    event-time-to: "17:00"
+    fb-event-url: "https://www.facebook.com/events/532114016992809/"
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+services:
+    configParamsService:
+                    class: App\Model\Services\ConfigParams([
+                        'appName' = %app-name%,
+                        'appYear' = %app-year%,
+                        'appSupportMail' = %app-support-mail%,
+                        'eventDate' = %event-date%,
+                        'eventTimeFrom' = %event-time-from%,
+                        'eventTimeTo' = %event-time-to%,
+                        'fbEventUrl' = %fb-event-url%,
+                        ]
+                    )
+
+extensions:
+    facebook: Kdyby\Facebook\DI\FacebookExtension

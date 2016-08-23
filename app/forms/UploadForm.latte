@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading-{$form->getName()}">
+        <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion-share-options" href="#collapse-{$form->getName()}"
+               aria-expanded="false" aria-controls="collapse-{$form->getName()}" class="btn btn-info">
+                {if $aboutBlockName === 'oneDriveShareForm'}
+                    Nemám účet na Facebooku a chci pouze nahrát fotku či video
+                {elseif $aboutBlockName === 'fbShareForm'}
+                    Nemám účet na Facebooku a chci, aby se můj příspěvek zobrazil u události na Facebooku
+                {/if}
+            </a>
+        </h4>
+    </div>
+
+    <div id="collapse-{$form->getName()}" role="tabpanel" aria-labelledby="heading-{$form->getName()}"
+         class="panel-collapse collapse {if $form->hasErrors()}in{/if}">
+
+        <div class="panel-body">
+            {if $aboutBlockName === 'oneDriveShareForm'}
+                <p class="share-option-about">
+                    Pokud chcete pouze přispět fotkou či videem z Vaší cesty, použijte formulář níže. V tomto
+                    případě se Vámi zaslaný obsah pouze přidá do našeho úložiště, ze kterého poté vznikne oficiální
+                    galerie. Tu po té budete moci najít na stránkách
+                    <a href="http://www.kosetice.cz/" target="_blank">obce Košetice</a>.
+                </p>
+            {elseif $aboutBlockName === 'fbShareForm'}
+                <p class="share-option-about">
+                    Bohužel Facebook standartně neumožňuje anonymním uživatelům nahrávat obsah, proto je nutné
+                    fotky či videa nahrát přes formulář níže. Váš příspěvek se spolu s Vámi vylpněným jménem
+                    přidá na stránku <a href="{$cfgParams->get('fbEventUrl')}" target="_blank">události</a>,
+                    kde ho budou moci vidět ostatní uživatelé a zároveň byste ho po té měli najít i vy.
+                </p>
+            {/if}
+
+            {control $form->getName()}
+
+        </div>
+    </div>
+</div>
+
+{* hack *}
+<script type="text/javascript">
+    {if $form->hasErrors()}
+        window.location.hash = '#upload';
+    {/if}
+</script>
