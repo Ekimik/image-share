@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="Jan Jíša">
 
-        <title>{ifset title}{include title|stripHtml} | {/ifset}{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</title>
+        <title>{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</title>
 
         <link href="{$basePath}/css/bootstrap.min.css" rel="stylesheet">
         <link href="{$basePath}/css/scrolling-nav.css" rel="stylesheet">
@@ -64,7 +64,7 @@
         <section id="intro" class="intro-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-xs-12">
                         <h1>O akci</h1>
 
                         <p>
@@ -72,11 +72,13 @@
                             <strong>Spolkem přátel mikroregionu Košeticko</strong>.
                         </p>
 
-                        <div class="col-lg-6 col-lg-offset-3">
+                        <div id="event-date-panel" class="col-lg-6 col-lg-offset-3">
                             <div id="event-date" class="panel panel-primary">
                                 <div class="panel-heading"><h4>Datum konání</h4></div>
                                 <div class="panel-body">
-                                    {$cfgParams->get('eventDate')}, {$cfgParams->get('eventTimeFrom')} - {$cfgParams->get('eventTimeTo')}
+                                    <h4>
+                                        {$cfgParams->get('eventDate')}, {$cfgParams->get('eventTimeFrom')} - {$cfgParams->get('eventTimeTo')}
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -92,20 +94,24 @@
                         <h2>Další informace</h2>
                         <div class="btn-group" role="group" aria-label="...">
                             <a target="_blank" href="http://bit.ly/2aX3mNA" class="btn btn-default">Propozice</a>
-                            <a href="#" class="btn btn-default">Plánované trasy</a>
+                            <a href="{$basePath}/images/trasy.jpg" class="btn btn-default">Plánované trasy</a>
                             <a href="{$cfgParams->get('fbEventUrl')}" class="btn btn-default">Facebook</a>
                         </div>
 
                     </div>
+
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </section>
+
+        <div class="clearfix"></div>
 
         <!-- Services Section -->
         <section id="upload" class="services-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-xs-12">
                         <h1>Podělit se o zážitek</h1>
 
                         <p>
@@ -140,18 +146,22 @@
                                 </div>
                             </div>
 
-                            {control fbShareForm}
+                            {*control fbShareForm*}
 
                             {control oneDriveShareForm}
 
                         </div>
 
-                        <p>
-                            <span class="label label-warning">
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="block-label label label-warning">
                                 Upozorňujeme, že veškerý nevhodný obsah bude smazán a to dle uvážení pořadatelů.
-                            </span>
-                        </p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </section>

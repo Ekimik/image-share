@@ -1,3 +1,8 @@
+.block-label {
+    display: block;
+    white-space: normal;
+}
+
 
 #accordion-share-options .panel {
     margin-bottom: 20px;

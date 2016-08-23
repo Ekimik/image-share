@@ -35,4 +35,4 @@ services:
                     )
 
 extensions:
-    facebook: Kdyby\Facebook\DI\FacebookExtension
+    #facebook: Kdyby\Facebook\DI\FacebookExtension
