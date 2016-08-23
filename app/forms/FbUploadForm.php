@@ -2,8 +2,6 @@
 
 namespace App\Forms;
 
-use \Nette\Application\UI\Form;
-
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
  * @package OneDriveUploader

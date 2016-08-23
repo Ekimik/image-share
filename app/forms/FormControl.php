@@ -5,7 +5,6 @@ namespace App\Forms;
 use \Nette\Application\UI\Control,
     \Nette\Application\UI\Form,
     \App\Model\Services\ConfigParams,
-    \App\Model\Exceptions\InvalidArgumentException,
     \App\Model\Adapters\AdapterFactory;
 
 /**

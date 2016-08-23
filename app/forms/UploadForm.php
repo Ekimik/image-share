@@ -18,7 +18,7 @@ class UploadForm extends Form implements IUploadForm {
      */
     protected $adapterChain = [];
     protected $allowedExtensions = [
-        'jpg', 'jpeg', 'png', 'gif', 'webp', 'mp4', '3gp', 'webm', 'mkv'
+        'jpg', 'jpeg', 'png', 'gif', 'webp', 'mp4', '3gp', 'webm', 'mkv', 'avi'
     ];
 
     public function getAdapterChain() {

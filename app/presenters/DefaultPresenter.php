@@ -3,7 +3,8 @@
 namespace App\Presenters;
 
 use \App\Forms\UploadForm,
-    \App\Forms\FormControl;
+    \App\Forms\FormControl,
+    \App\Controls\SimpleGalleryControl;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
@@ -14,6 +15,7 @@ class DefaultPresenter extends BasePresenter {
     public function renderDefault() {
 //        $this->template->fbShareForm = $this['fbShareForm'];
         $this->template->oneDriveShareForm = $this['oneDriveShareForm'];
+        $this->template->simpleGallery = $this['simpleGallery'];
     }
 
 //    protected function createComponentFbShareForm() {
@@ -35,6 +37,13 @@ class DefaultPresenter extends BasePresenter {
         $fc->setCfgParams($this->cfgParams);
         $fc->setFormName('oneDriveShareForm');
         return $fc;
+    }
+
+    protected function createComponentSimpleGallery() {
+        $gallery = new SimpleGalleryControl();
+        $gallery->setCfgParams($this->cfgParams);
+
+        return $gallery;
     }
 
 }

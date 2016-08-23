@@ -3,7 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 // constants
-define('USER_FILES_DIR', __DIR__ . '/../userFiles');
+define('USER_FILES_DIR', __DIR__ . '/../www/userFiles');
 define('FORM_TEMPLATES_DIR', __DIR__ . '/forms');
 
 $configurator = new Nette\Configurator;

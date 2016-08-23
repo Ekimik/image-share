@@ -1,7 +1,9 @@
-.block-label {
-    display: block;
+.inline-block-label {
+    display: inline-block;
     white-space: normal;
 }
+.spacer-20 {margin-bottom: 20px; height: 1px;}
+.spacer-10 {margin-bottom: 10px; height: 1px;}
 
 
 #accordion-share-options .panel {
