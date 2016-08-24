@@ -2,6 +2,8 @@
 
 namespace App\Model\Adapters;
 
+use \Nette\Utils\Strings;
+
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
  * @package OneDriveUploader
@@ -14,9 +16,12 @@ class FileSystemUploadAdapter extends UploadAdapter {
             $originalName = $file->name;
 
             try {
-                $filename = $this->normalizeFilename($file->name);
-                $preffix = time() . rand(0, 100) .'_';
-                $file->move(USER_FILES_DIR . '/' . $preffix . $filename);
+                $extension = Strings::lower(pathinfo($file->name, PATHINFO_EXTENSION));
+                $filename = pathinfo($file->name, PATHINFO_FILENAME);
+                $filename = $this->normalizeFilename($filename);
+
+                $preffix = time() . rand(0, 100) . '_';
+                $file->move(USER_FILES_DIR . '/' . $preffix . $filename . '.' . $extension);
             } catch (\Exception $e) {
                 $this->addError($originalName, $e);
             }
