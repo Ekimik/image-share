@@ -14,9 +14,9 @@ class FileSystemUploadAdapter extends UploadAdapter {
             $originalName = $file->name;
 
             try {
-                $this->normalizeFilename($file->name);
+                $filename = $this->normalizeFilename($file->name);
                 $preffix = time() . rand(0, 100) .'_';
-                $file->move(USER_FILES_DIR . '/' . $preffix . $file->name);
+                $file->move(USER_FILES_DIR . '/' . $preffix . $filename);
             } catch (\Exception $e) {
                 $this->addError($originalName, $e);
             }

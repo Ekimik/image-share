@@ -5,6 +5,7 @@ namespace App\Forms;
 use \Nette\Application\UI\Form,
     \App\Model\Adapters\IUploadAdapter,
     \Nette\Utils\Html,
+    \Nette\Utils\Strings,
     \Nette\Forms\Controls;
 
 /**
@@ -105,7 +106,7 @@ class UploadForm extends Form implements IUploadForm {
 
     protected function validateFiles($files) {
         foreach ($files as $i => $file) {
-            $fileExt = pathinfo($file->name, PATHINFO_EXTENSION);
+            $fileExt = Strings::lower(pathinfo($file->name, PATHINFO_EXTENSION));
             if (!in_array($fileExt, $this->allowedExtensions)) {
                 $errMsg = 'Soubor %s má nepodporovaný formát.';
                 $this->addError(sprintf($errMsg, $file->name));
