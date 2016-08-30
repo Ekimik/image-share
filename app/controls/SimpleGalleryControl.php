@@ -38,9 +38,11 @@ class SimpleGalleryControl extends Control {
 
         $template->cfgParams = $this->getCfgParams();
 
-        shuffle($files);
         if (!empty($this->getLimit())) {
+            shuffle($files);
             $template->images = array_slice($files, 0, $this->getLimit());
+        } else {
+            $template->images = $files;
         }
         $template->render();
     }

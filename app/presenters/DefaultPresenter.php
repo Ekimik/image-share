@@ -18,6 +18,10 @@ class DefaultPresenter extends BasePresenter {
         $this->template->simpleGallery = $this['simpleGallery'];
     }
 
+    public function renderGallery() {
+        $this->template->largeGallery = $this['largeGallery'];
+    }
+
 //    protected function createComponentFbShareForm() {
 //        $fc = new FormControl();
 //        $fc->setTemplateFile(FORM_TEMPLATES_DIR . '/UploadForm.latte');
@@ -42,6 +46,14 @@ class DefaultPresenter extends BasePresenter {
     protected function createComponentSimpleGallery() {
         $gallery = new SimpleGalleryControl();
         $gallery->setCfgParams($this->cfgParams);
+
+        return $gallery;
+    }
+
+    protected function createComponentLargeGallery() {
+        $gallery = new SimpleGalleryControl();
+        $gallery->setCfgParams($this->cfgParams);
+        $gallery->setLimit(NULL);
 
         return $gallery;
     }
