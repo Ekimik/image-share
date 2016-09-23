@@ -13,8 +13,7 @@ use \App\Forms\UploadForm,
 class DefaultPresenter extends BasePresenter {
 
     public function renderDefault() {
-//        $this->template->fbShareForm = $this['fbShareForm'];
-        $this->template->oneDriveShareForm = $this['oneDriveShareForm'];
+        $this->template->shareForm = $this['shareForm'];
         $this->template->simpleGallery = $this['simpleGallery'];
     }
 
@@ -22,24 +21,20 @@ class DefaultPresenter extends BasePresenter {
         $this->template->largeGallery = $this['largeGallery'];
     }
 
-//    protected function createComponentFbShareForm() {
-//        $fc = new FormControl();
-//        $fc->setTemplateFile(FORM_TEMPLATES_DIR . '/UploadForm.latte');
-//        $fc->setAboutBlockName('fbShareForm');
-//        $fc->setCfgParams($this->cfgParams);
-//        $fc->setFormName('fbShareForm');
-//        return $fc;
-//    }
+    public function renderInvalidAppPeriod() {
+        // just show template
+    }
 
     /**
      * @return UploadForm
      */
-    protected function createComponentOneDriveShareForm() {
+    protected function createComponentShareForm() {
         $fc = new FormControl();
         $fc->setTemplateFile(FORM_TEMPLATES_DIR . '/UploadForm.latte');
-        $fc->setAboutBlockName('oneDriveShareForm');
+        $fc->setAboutBlockName('shareForm');
         $fc->setCfgParams($this->cfgParams);
-        $fc->setFormName('oneDriveShareForm');
+        $fc->setFormName('shareForm');
+        $fc->setAdapterFactory($this->adapterFactory);
         return $fc;
     }
 

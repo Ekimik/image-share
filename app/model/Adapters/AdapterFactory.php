@@ -12,7 +12,7 @@ use \Nette\Object,
  */
 class AdapterFactory extends Object {
 
-    public static function create($name) {
+    public function create($name) {
         $name = Strings::lower($name);
         $adapter = NULL;
 

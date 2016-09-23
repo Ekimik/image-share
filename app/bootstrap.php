@@ -19,7 +19,6 @@ $configurator->createRobotLoader()
 	->register();
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
-//$configurator->addConfig(__DIR__ . '/config/fb.neon');
 
 $router = new \Nette\Application\Routers\RouteList();
 $router[] = new Nette\Application\Routers\Route('<presenter>/<action>[/<id>]', 'Default:default');

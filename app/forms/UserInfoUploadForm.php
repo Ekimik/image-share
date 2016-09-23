@@ -6,7 +6,7 @@ namespace App\Forms;
  * @author Jan Jíša <j.jisa@seznam.cz>
  * @package ImageShare
  */
-class FbUploadForm extends UploadForm {
+class UserInfoUploadForm extends UploadForm {
 
     public function getAppForm() {
         $this->addText('name', 'Vaše jméno')

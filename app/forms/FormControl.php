@@ -8,8 +8,6 @@ use \Nette\Application\UI\Control,
     \App\Model\Adapters\AdapterFactory;
 
 /**
- * Description of FormControl
- *
  * @author Jan Jíša <j.jisa@seznam.cz>
  * @package ImageShare
  */
@@ -19,6 +17,11 @@ class FormControl extends Control {
      * @var Form
      */
     protected $formName;
+
+    /**
+     * @var AdapterFactory
+     */
+    protected $af;
 
     /**
      * @var ConfigParams
@@ -74,20 +77,15 @@ class FormControl extends Control {
         return $this;
     }
 
-    protected function createComponentOneDriveShareForm() {
-        $form = new UploadForm($this, 'oneDriveShareForm');
-        $form->setAdapterChain([
-            AdapterFactory::create('FileSystemUploadAdapter')
-        ]);
-
-        return $form->getAppForm();
+    public function setAdapterFactory(AdapterFactory $af) {
+        $this->af = $af;
     }
 
-    protected function createComponentFbShareForm() {
-        $form = new FbUploadForm($this, 'fbShareForm');
-//        $form->setAdapterChain([
-//            AdapterFactory::create('FileSystemUploadAdapter')
-//        ]);
+    protected function createComponentShareForm() {
+        $form = new UploadForm($this, 'shareForm');
+        $form->setAdapterChain([
+            $this->af->create('FileSystemUploadAdapter')
+        ]);
 
         return $form->getAppForm();
     }
