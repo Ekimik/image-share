@@ -6,7 +6,7 @@ use \App\Models\Adapters\IUploadAdapter;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 interface IUploadForm extends IAppForm {
 

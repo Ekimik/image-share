@@ -6,7 +6,7 @@ use \Nette\Utils\Strings;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 class FileSystemUploadAdapter extends UploadAdapter {
 

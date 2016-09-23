@@ -9,7 +9,7 @@ use \Nette\Http\FileUpload,
  * Base upload adapter
  *
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 abstract class UploadAdapter implements IUploadAdapter {
 

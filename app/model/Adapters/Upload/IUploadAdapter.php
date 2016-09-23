@@ -4,7 +4,7 @@ namespace App\Model\Adapters;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 interface IUploadAdapter {
 

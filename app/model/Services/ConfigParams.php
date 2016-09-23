@@ -6,7 +6,7 @@ use \Nette\Object;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 class ConfigParams extends Object {
 

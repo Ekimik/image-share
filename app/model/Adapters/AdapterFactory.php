@@ -8,7 +8,7 @@ use \Nette\Object,
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 class AdapterFactory extends Object {
 

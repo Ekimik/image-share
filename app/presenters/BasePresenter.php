@@ -8,7 +8,7 @@ use \Nette\Application\UI\Presenter,
 
 /**
  * Base presenter for all application presenters.
- * @package OneDriveUploader
+ * @package ImageShare
  */
 abstract class BasePresenter extends Presenter {
 

@@ -8,7 +8,7 @@ use \App\Forms\UploadForm,
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 class DefaultPresenter extends BasePresenter {
 

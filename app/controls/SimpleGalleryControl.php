@@ -8,7 +8,7 @@ use \Nette\Application\UI\Control,
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 class SimpleGalleryControl extends Control {
 

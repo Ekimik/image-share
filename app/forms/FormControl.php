@@ -11,7 +11,7 @@ use \Nette\Application\UI\Control,
  * Description of FormControl
  *
  * @author Jan Jíša <j.jisa@seznam.cz>
- * @package OneDriveUploader
+ * @package ImageShare
  */
 class FormControl extends Control {
 
