@@ -13,6 +13,7 @@ class ConfigParams extends Object {
 
     // app itself related
     protected $appName;
+    protected $appCodeName;
     protected $appYear;
     protected $appSupportMail;
     protected $appValidFrom;

@@ -5,6 +5,7 @@
 parameters:
     # app related
     app-name: 'App Name'
+    app-code-name: null
     app-year: '2016'
     app-support-mail: 'email@address.here'
     # use only format YYYY-MM-DD HH:MM:SS
@@ -35,6 +36,7 @@ services:
     configParamsService:
         class: App\Model\Services\ConfigParams([
             'appName' = %app-name%,
+            'appCodeName' = %app-code-name%,
             'appYear' = %app-year%,
             'appSupportMail' = %app-support-mail%,
             'appValidFrom' = %app-valid-from%,
