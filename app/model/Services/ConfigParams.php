@@ -11,6 +11,9 @@ use \Nette\Object,
  */
 class ConfigParams extends Object {
 
+    const APP_CODE_SOKOL_KOSETICE = 'sokol_kosetice';
+    const APP_CODE_KOLEM_DOKOLA = 'kolem_dokola';
+
     // app itself related
     protected $appName;
     protected $appCodeName;
@@ -87,6 +90,16 @@ class ConfigParams extends Object {
      */
     public function get($param) {
         return $this->$param;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAppCodeAllowed() {
+        $code = $this->get('appCodeName');
+        $allowedCodes = [self::APP_CODE_KOLEM_DOKOLA, self::APP_CODE_SOKOL_KOSETICE];
+
+        return in_array($code, $allowedCodes);
     }
 
     /**

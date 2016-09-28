@@ -9,7 +9,10 @@
         <meta name="description" content="">
         <meta name="author" content="Jan Jíša">
 
-        <title>{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</title>
+        <title>
+            {block sub-title}{/block}
+            {$cfgParams->get('appName')} {$cfgParams->get('appYear')}
+        </title>
 
         <link href="{$basePath}/css/bootstrap.min.css" rel="stylesheet">
         <link href="{$basePath}/css/scrolling-nav.css" rel="stylesheet">

@@ -1,0 +1,110 @@
+{block content}
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#upload">Nahrát příspěvek k zápasu</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+        <div class="col-lg-12">
+            <div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Intro Section -->
+<section id="intro" class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Sdílejte momentky ze zápasů Sokola Košetice</h1>
+
+                <p>
+                    Sokol Košetice má vynikající fanoušky, to je již dlouho známá věc. Často si naši příznivci pořizují
+                    během zápasu či bezprostředně po něm fotky či videa. Tento obsah by bylo škoda ponechat pouze v zařízení
+                    autora, proto je tu tato aplikace, která <strong>umožní našim fandům snadno sdílet tyto momentky</strong>.
+                    Vybraný obsah pak bude umístěn buď přímo na <a href="http://www.sokolkosetice.cz" target="_blank">web</a>
+                    nebo v případě videí na
+                    <a href="https://www.youtube.com/channel/UClCloh5f7f5_ggVRmYYUisg" target="_blank">košetický Youtube kanál</a>.
+                </p>
+
+                <h2>Jak to funguje?</h2>
+                <div id="how-it-works-list" class="col-lg-8 col-lg-offset-2 text-left">
+                    <div class="list-item">
+                        <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+                        Vyfoťte či nahrajte video při zápase.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                        Vyberte utkání ze seznamu.
+                    </div>
+
+                    <div class="list-item">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+                        Zvolte přes formulář u zápasu soubory (měli být podporovány všechny běžné typy souborů)
+                        a nahrajte je.
+                    </div>
+                </div>
+
+                <div class="inline-block-label label label-warning">
+                    Máte-li problémy s aplikací, oznamte to prosím skrz email
+                    <a href="mailto:{$cfgParams->get('appSupportMail')}">{$cfgParams->get('appSupportMail')}</a>.
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>
+
+<div class="clearfix"></div>
+
+<!-- Services Section -->
+<section id="upload" class="services-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Nahrát příspěvek k zápasu</h1>
+
+                <div class="col-lg-6 col-lg-offset-3">
+                    {control matchShareForm}
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="inline-block-label label label-warning">
+                    Upozorňujeme, že veškerý nevhodný obsah bude smazán a to dle uvážení Sokol Košetice z.s.
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+</section>
+
+{include '../../../footer-js.latte'}

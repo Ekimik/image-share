@@ -5,7 +5,8 @@ namespace App\Forms;
 use \Nette\Application\UI\Control,
     \Nette\Application\UI\Form,
     \App\Model\Services\ConfigParams,
-    \App\Model\Adapters\AdapterFactory;
+    \App\Model\Adapters\AdapterFactory,
+    \Nette\Utils\Json;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
@@ -81,11 +82,27 @@ class FormControl extends Control {
         $this->af = $af;
     }
 
+    /**
+     * @return UploadForm
+     */
     protected function createComponentShareForm() {
         $form = new UploadForm($this, 'shareForm');
         $form->setAdapterChain([
             $this->af->create('FileSystemUploadAdapter')
         ]);
+
+        return $form->getAppForm();
+    }
+
+    /**
+     * @return MatchUploadForm
+     */
+    protected function createComponentMatchShareForm() {
+        $form = new MatchUploadForm($this, 'matchShareForm');
+        $form->setAdapterChain([
+            $this->af->create('FileSystemUploadAdapter')
+        ]);
+        $form->setMatches(Json::decode(file_get_contents(CONFIG_DIR . '/matches.json')));
 
         return $form->getAppForm();
     }

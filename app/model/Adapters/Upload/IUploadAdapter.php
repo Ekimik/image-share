@@ -12,7 +12,7 @@ interface IUploadAdapter {
 
     public function getFiles();
 
-    public function setAdditionalData(Array $data);
+    public function setAdditionalData($data);
 
     public function getAdditionalData();
 

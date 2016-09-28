@@ -2,7 +2,8 @@
 
 namespace App\Model\Adapters;
 
-use \Nette\Utils\Strings;
+use \Nette\Utils\Strings,
+    \Nette\Utils\FileSystem;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
@@ -20,12 +21,27 @@ class FileSystemUploadAdapter extends UploadAdapter {
                 $filename = pathinfo($file->name, PATHINFO_FILENAME);
                 $filename = $this->normalizeFilename($filename);
 
+                $dir = $this->getDirectory();
+                if (!is_dir($dir)) {
+                    FileSystem::createDir($dir);
+                }
+
                 $preffix = time() . rand(0, 100) . '_';
-                $file->move(USER_FILES_DIR . '/' . $preffix . $filename . '.' . $extension);
+                $file->move($dir . '/' . $preffix . $filename . '.' . $extension);
             } catch (\Exception $e) {
                 $this->addError($originalName, $e);
             }
         }
+    }
+
+    protected function getDirectory() {
+        $ad = $this->getAdditionalData();
+        $specificDir = NULL;
+        if (key_exists('directory', $ad)) {
+            $specificDir = '/' . $ad['directory'];
+        }
+
+        return USER_FILES_DIR . $specificDir;
     }
 
 }

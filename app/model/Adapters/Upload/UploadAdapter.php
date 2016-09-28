@@ -32,7 +32,7 @@ abstract class UploadAdapter implements IUploadAdapter {
     /**
      * @param array $data
      */
-    public function setAdditionalData(Array $data) {
+    public function setAdditionalData($data) {
         $this->additionalData = $data;
     }
 

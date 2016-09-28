@@ -1,0 +1,11 @@
+{layout 'galleryLayout.latte'}
+
+{block galleryPagination}
+<nav aria-label="Gallery navigation">
+    <ul class="pagination">
+        {for $i = 1; $i <= $control->getTotalPagesCount(); $i++}
+            <li><a n:href="pagination! page => $i">{$i}</a></li>
+        {/for}
+    </ul>
+</nav>
+{/block}

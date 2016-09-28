@@ -1,0 +1,26 @@
+<div class="col-lg-12">
+    {if !empty($images)}
+        {foreach $images as $image}
+            <div class="col-md-3">
+                <div class="spacer-10"></div>
+                <img src="{$basePath}/{$control->getGalleryDir()}/{$image}" alt="{$cfgParams->get('appName')} {$cfgParams->get('appYear')}"
+                     class="img-thumbnail img-responsive" />
+            </div>
+
+            {if $iterator->counter % 4 === 0}
+                <div class="clearfix"></div>
+            {/if}
+
+        {/foreach}
+
+        <div class="clearfix"></div>
+
+        {block galleryPagination}{/block}
+    {else}
+        <div class="alert alert-info">V galerii nejsou žádné obrázky.</div>
+    {/if}
+</div>
+
+<div class="clearfix"></div>
+<div class="spacer-20"></div>
+<div class="spacer-20"></div>

@@ -2,9 +2,10 @@
 
 namespace App\Presenters;
 
-use \App\Forms\UploadForm,
-    \App\Forms\FormControl,
-    \App\Controls\SimpleGalleryControl;
+use \App\Forms\FormControl,
+    \App\Controls\RandomGalleryControl,
+    \App\Controls\GalleryControl,
+    \App\Model\Services\ConfigParams;
 
 /**
  * @author Jan Jíša <j.jisa@seznam.cz>
@@ -13,12 +14,22 @@ use \App\Forms\UploadForm,
 class DefaultPresenter extends BasePresenter {
 
     public function renderDefault() {
-        $this->template->shareForm = $this['shareForm'];
-        $this->template->simpleGallery = $this['simpleGallery'];
+        $appCode = $this->cfgParams->get('appCodeName');
+        if ($appCode === ConfigParams::APP_CODE_KOLEM_DOKOLA) {
+            $this->template->shareForm = $this['shareForm'];
+            $this->template->kolemDokolaSimpleGallery = $this['kolemDokolaSimpleGallery'];
+        } else if ($appCode === ConfigParams::APP_CODE_SOKOL_KOSETICE) {
+            $this->template->matchShareForm = $this['matchShareForm'];
+        }
     }
 
     public function renderGallery() {
-        $this->template->largeGallery = $this['largeGallery'];
+        $appCode = $this->cfgParams->get('appCodeName');
+        if ($appCode === ConfigParams::APP_CODE_KOLEM_DOKOLA) {
+            $this->template->kolemDokolaLargeGallery = $this['kolemDokolaLargeGallery'];
+        } else if ($appCode === ConfigParams::APP_CODE_SOKOL_KOSETICE) {
+
+        }
     }
 
     public function renderInvalidAppPeriod() {
@@ -26,11 +37,11 @@ class DefaultPresenter extends BasePresenter {
     }
 
     /**
-     * @return UploadForm
+     * @return FormControl
      */
     protected function createComponentShareForm() {
         $fc = new FormControl();
-        $fc->setTemplateFile(FORM_TEMPLATES_DIR . '/UploadForm.latte');
+        $fc->setTemplateFile(FORM_TEMPLATES_DIR . '/' . $this->cfgParams->get('appCodeName') . '/UploadForm.latte');
         $fc->setAboutBlockName('shareForm');
         $fc->setCfgParams($this->cfgParams);
         $fc->setFormName('shareForm');
@@ -38,17 +49,31 @@ class DefaultPresenter extends BasePresenter {
         return $fc;
     }
 
-    protected function createComponentSimpleGallery() {
-        $gallery = new SimpleGalleryControl();
+    /**
+     * @return FormControl
+     */
+    protected function createComponentMatchShareForm() {
+        $fc = new FormControl();
+        $fc->setTemplateFile(FORM_TEMPLATES_DIR . '/' . $this->cfgParams->get('appCodeName') . '/MatchUploadForm.latte');
+        $fc->setCfgParams($this->cfgParams);
+        $fc->setFormName('matchShareForm');
+        $fc->setAdapterFactory($this->adapterFactory);
+        return $fc;
+    }
+
+    protected function createComponentKolemDokolaSimpleGallery() {
+        $gallery = new RandomGalleryControl();
         $gallery->setCfgParams($this->cfgParams);
+        $gallery->setGalleryDir(USER_FILES_DIR_NAME);
 
         return $gallery;
     }
 
-    protected function createComponentLargeGallery() {
-        $gallery = new SimpleGalleryControl();
+    protected function createComponentKolemDokolaLargeGallery() {
+        $gallery = new GalleryControl();
         $gallery->setCfgParams($this->cfgParams);
-        $gallery->setLimit(NULL);
+        $gallery->setLimit(2);
+        $gallery->setGalleryDir(USER_FILES_DIR_NAME);
 
         return $gallery;
     }

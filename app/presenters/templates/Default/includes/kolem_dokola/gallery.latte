@@ -1,0 +1,41 @@
+{block content}
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <a class="navbar-brand" n:href="Default:">{$cfgParams->get('appName')} {$cfgParams->get('appYear')}</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+        <div class="col-lg-12">
+            <div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Intro Section -->
+<section id="intro" class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {control kolemDokolaLargeGallery}
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>
+
+<div class="clearfix"></div>
+{include '../../../footer-js.latte'}
