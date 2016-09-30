@@ -6,6 +6,8 @@
 .spacer-10 {margin-bottom: 10px; height: 1px;}
 
 
+.issue-report a {color: inherit; text-decoration: underline;}
+
 #accordion-share-options .panel {
     margin-bottom: 20px;
 }
