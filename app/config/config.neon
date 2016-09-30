@@ -5,6 +5,9 @@
 parameters:
     # app related
     app-name: 'App Name'
+    # possible values:
+    #   - sokol_kosetice
+    #   - kolem_dokola
     app-code-name: null
     app-year: '2016'
     app-support-mail: 'email@address.here'
