@@ -3,7 +3,8 @@
 namespace App\Model\Adapters;
 
 use \Nette\Http\FileUpload,
-    \Nette\Utils\Strings;
+    \Nette\Utils\Strings,
+    \App\Strategies\Notification\INotification;
 
 /**
  * Base upload adapter
@@ -18,6 +19,11 @@ abstract class UploadAdapter implements IUploadAdapter {
     protected $additionalData = [];
     protected $errors = [];
 
+    /**
+     * @var INotification
+     */
+    protected $notificationAbility;
+
     public function getAdditionalData() {
         return $this->additionalData;
     }
@@ -30,6 +36,13 @@ abstract class UploadAdapter implements IUploadAdapter {
     }
 
     /**
+     * @return INotification
+     */
+    public function getNotificationAbility() {
+        return $this->notificationAbility;
+    }
+
+    /**
      * @param array $data
      */
     public function setAdditionalData($data) {
@@ -38,6 +51,13 @@ abstract class UploadAdapter implements IUploadAdapter {
 
     public function setFiles($files) {
         $this->files = $files;
+    }
+
+    /**
+     * @param INotification $notification
+     */
+    public function setNotificationAbility(INotification $notification) {
+        $this->notificationAbility = $notification;
     }
 
     public function normalizeFilename($filename) {

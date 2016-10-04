@@ -21,11 +21,15 @@ class ConfigParams extends Object {
     protected $appSupportMail;
     protected $appValidFrom;
     protected $appValidTo;
+
     // app event related
     protected $eventDate;
     protected $eventTimeFrom;
     protected $eventTimeTo;
     protected $fbEventUrl;
+
+    // notifications settings
+    protected $notifications;
 
     /**
      * @param array $params

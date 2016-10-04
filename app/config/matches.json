@@ -1,10 +1,94 @@
 [
     {
-        "value": "zapas_1",
-        "text": "Zápas 1"
+        "value": "kosetice_polna-b_2016-08-06",
+        "text": "Košetice - Polná B"
     },
     {
-        "value": "zapas_2",
-        "text": "Zápas 2"
+        "value": "pacov_kosetice_2016-08-14",
+        "text": "Pacov - Košetice"
+    },
+    {
+        "value": "kosetice_chotebor-b_2016-08-20",
+        "text": "Košetice - Chotěboř B"
+    },
+    {
+        "value": "castrov_kosetice-b_2016-08-21",
+        "text": "Častrov - Košetice B"
+    },
+    {
+        "value": "pohled_kosetice_2016-08-28",
+        "text": "Pohled - Košetice"
+    },
+    {
+        "value": "kosetice-b_nova-cerekev_2016-08-28",
+        "text": "Nová Cerekev - Košetice B"
+    },
+    {
+        "value": "kosetice_havlickova-borova_2016-09-03",
+        "text": "Košetice - Havlíčkova Borová"
+    },
+    {
+        "value": "kosetice-b_horni-cerekev-b_2016-09-10",
+        "text": "Košetice B - Horní Cerekev B"
+    },
+    {
+        "value": "svetla_kosetice_2016-09-11",
+        "text": "Světlá nad Sázavou - Košetice"
+    },
+    {
+        "value": "kosetice_dobronin_2016-09-17",
+        "text": "Košetice - Dobronín"
+    },
+    {
+        "value": "mnich_kosetice-b_2016-09-18",
+        "text": "Mnich - Košetice B"
+    },
+    {
+        "value": "kosetice-b_sperice-b_2016-09-24",
+        "text": "Košetice B - Speřice B"
+    },
+    {
+        "value": "sperice_kosetice_2016-09-25",
+        "text": "Speřice - Košetice"
+    },
+    {
+        "value": "kosetice_lestina_2016-10-01",
+        "text": "Košetice - Leština"
+    },
+    {
+        "value": "trest-c_kosetice-b_2016-10-02",
+        "text": "Třešť C - Košetice B"
+    },
+    {
+        "value": "kosetice_bedrichov_2016-10-08",
+        "text": "Košetice - Bedřichov"
+    },
+    {
+        "value": "obratan-b_kosetice-b_2016-10-09",
+        "text": "Obrataň B - Košetice B"
+    },
+    {
+        "value": "kosetice-b_hnevkovice_2016-10-15",
+        "text": "Košetice B - Hněvkovice"
+    },
+    {
+        "value": "luka_kosetice_2016-10-16",
+        "text": "Luka nad Jihlavou - Košetice"
+    },
+    {
+        "value": "kosetice_havlickuv-brod_2016-10-22",
+        "text": "Košetice - Havlíčkův Brod B"
+    },
+    {
+        "value": "plackov-b_kosetice-b_2016-10-23",
+        "text": "Plačkov B - Košetice B"
+    },
+    {
+        "value": "kamenice_kosetice_2016-10-29",
+        "text": "Kamenice nad Lipou - Košetice"
+    },
+    {
+        "value": "kosetice-b_zirov-b_2016-10-29",
+        "text": "Košetice B - Žirov B"
     }
 ]

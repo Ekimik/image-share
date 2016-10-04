@@ -32,6 +32,15 @@ class FileSystemUploadAdapter extends UploadAdapter {
                 $this->addError($originalName, $e);
             }
         }
+
+        if (!$this->hasErrors()) {
+            $params = [count($files), basename($this->getDirectory())];
+            $this->getNotificationAbility()->notify($params);
+        }
+    }
+
+    public function getAdapterName() {
+        return 'filesystemuploadadapter';
     }
 
     protected function getDirectory() {

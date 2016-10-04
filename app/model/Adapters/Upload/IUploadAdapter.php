@@ -6,7 +6,7 @@ namespace App\Model\Adapters;
  * @author Jan Jíša <j.jisa@seznam.cz>
  * @package ImageShare
  */
-interface IUploadAdapter {
+interface IUploadAdapter extends IAdapter {
 
     public function setFiles($files);
 

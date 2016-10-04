@@ -1,1 +1,8 @@
 {control $form->getName()}
+
+{* hack *}
+<script type="text/javascript">
+    {if $form->hasErrors()}
+        window.location.hash = '#upload';
+    {/if}
+</script>

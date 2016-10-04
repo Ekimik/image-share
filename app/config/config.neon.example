@@ -4,13 +4,13 @@
 #
 parameters:
     # app related
-    app-name: 'App Name'
+    app-name: 'Sokol Košetice Share'
     # possible values:
     #   - sokol_kosetice
     #   - kolem_dokola
-    app-code-name: null
-    app-year: '2016'
-    app-support-mail: 'email@address.here'
+    app-code-name: 'sokol_kosetice'
+    app-year: null
+    app-support-mail: 'info@sokolkosetice.cz'
     # use only format YYYY-MM-DD HH:MM:SS
     app-valid-from: null # null means valid all time
     app-valid-to: null # null means valid all time
@@ -23,8 +23,12 @@ parameters:
 
     # see adapter factory for names
     notifications:
-        sokol_kosetice: null
-        kolem_dokola: null
+        sokol_kosetice:
+            filesystemuploadadapter:
+                from: 'share@sokolkosetice.cz'
+                to: ['info@sokolkosetice.cz']
+                subject: 'New content uploaded'
+                message: 'New files (%s) uploaded to match "%s".'
 
 application:
     errorPresenter: Error
